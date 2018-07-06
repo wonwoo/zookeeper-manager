@@ -1,0 +1,16 @@
+.hero-body {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 2rem 1.5rem;
+}
+
+.container-margin {
+  margin-bottom: 20px;
+}
+
+.buttons {
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
