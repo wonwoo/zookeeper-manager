@@ -2,6 +2,7 @@ package ml.wonwoo.zookeepermanager.web;
 
 import ml.wonwoo.zookeepermanager.zookeeper.ExistNodeException;
 import ml.wonwoo.zookeepermanager.zookeeper.Zoo;
+import org.apache.zookeeper.CreateMode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -20,10 +21,10 @@ public class ManagerController {
   }
 
   @PostMapping("/")
-  public String createZoo(String[] path) {
+  public String createZoo(String[] path, CreateMode createMode) {
     String str = StringUtils.arrayToDelimitedString(path, "/");
-    zoo.createNode(str);
-    return "redirect:/zoo?path=" + str;
+    String node = zoo.createNode(str, createMode);
+    return "redirect:/zoo?path=" + node;
   }
 
   @GetMapping("/zoo")

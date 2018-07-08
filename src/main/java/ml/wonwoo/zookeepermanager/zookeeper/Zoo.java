@@ -1,6 +1,7 @@
 package ml.wonwoo.zookeepermanager.zookeeper;
 
 import org.apache.curator.framework.CuratorFramework;
+import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 import org.springframework.stereotype.Component;
 
@@ -24,9 +25,9 @@ public class Zoo {
     }
   }
 
-  public String createNode(String path, byte[] payload) {
+  public String createNode(String path, CreateMode createModes, byte[] payload) {
     try {
-      return curator.create().forPath(rootPath(path), payload);
+      return curator.create().withMode(createModes).forPath(rootPath(path), payload);
     } catch (Exception e) {
       throw new ZookeeperException("create node error", e);
     }
@@ -48,11 +49,11 @@ public class Zoo {
     }
   }
 
-  public String createNode(String path) {
+  public String createNode(String path, CreateMode createModes) {
     if (this.existNode(rootPath(path)) != null) {
       throw new ExistNodeException(path, path + " is exist");
     }
-    return this.createNode(rootPath(path), new byte[0]);
+    return this.createNode(rootPath(path), createModes, new byte[0]);
   }
 
   public Stat existNode(String path) {

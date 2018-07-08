@@ -28,11 +28,11 @@
 </section>
 
 <div th:if="${param.exist}" class="notification is-danger">
-  <span th:text="'exist node /' + ${param.path}"></span>
+  <span th:text="'exist node ' + ${param.path}"></span>
 </div>
 <section class="section">
   <div class="container container-margin">
-    <h2 class="title" th:text="'/' + ${p}"></h2>
+    <h2 class="title" th:text="${p}"></h2>
   </div>
   <div class="container container-margin">
     <form action="/zoo" method="post">
@@ -240,6 +240,20 @@
             </div>
           </div>
         </div>
+        <div class="field">
+          <div class="control has-text-right">
+            <div class="select is-primary">
+              <select name="createMode">
+                <option value="0">PERSISTENT</option>
+                <option value="2">PERSISTENT_SEQUENTIAL</option>
+                <option value="1">EPHEMERAL</option>
+                <option value="3">EPHEMERAL_SEQUENTIAL</option>
+                <option value="4">CONTAINER</option>
+                <option value="5">PERSISTENT_WITH_TTL</option>
+                <option value="6">PERSISTENT_SEQUENTIAL_WITH_TTL</option>
+              </select>
+            </div>
+          </div>
       </section>
       <footer class="modal-card-foot">
         <button type="submit" class="button is-success">Save</button>
