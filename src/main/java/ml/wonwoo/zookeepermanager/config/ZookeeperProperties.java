@@ -13,6 +13,7 @@ public class ZookeeperProperties {
   private Integer maxSleepMs = 5000;
   private Integer blockUntilConnectedWait = 10;
   private TimeUnit blockUntilConnectedUnit = TimeUnit.SECONDS;
+  private Admin admin = new Admin();
 
   public String getConnectString() {
     return connectString;
@@ -60,5 +61,25 @@ public class ZookeeperProperties {
 
   public void setBlockUntilConnectedUnit(TimeUnit blockUntilConnectedUnit) {
     this.blockUntilConnectedUnit = blockUntilConnectedUnit;
+  }
+
+  public void setAdmin(Admin admin) {
+    this.admin = admin;
+  }
+
+  public Admin getAdmin() {
+    return admin;
+  }
+
+  public static class Admin {
+    private String uri = "http://localhost:8080/commands";
+
+    public String getUri() {
+      return uri;
+    }
+
+    public void setUri(String uri) {
+      this.uri = uri;
+    }
   }
 }
