@@ -49,7 +49,6 @@ public class ManagerController {
     return "redirect:/";
   }
 
-
   @ExceptionHandler(ExistNodeException.class)
   public String existNodeException(ExistNodeException e) {
     return "redirect:/zoo?exist&path=" + e.getPath();
