@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zookeeper Manager</title>
-
+  <script src="/webjars/timeago.js/3.0.0/dist/timeago.js"></script>
   <link rel="stylesheet" href="/webjars/bulma/0.7.0/css/bulma.css">
   <link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/style.css">
@@ -100,7 +100,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <input class="input" type="text" th:value="${node.ctime}" readonly/>
+            <input class="input" id="ctime" type="text" th:value="${node.ctime}" readonly/>
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <input class="input" type="text" th:value="${node.mtime}" readonly/>
+            <input class="input" id="mtime" type="text" th:value="${node.mtime}" readonly/>
           </div>
         </div>
       </div>
@@ -253,6 +253,7 @@
               </select>
             </div>
           </div>
+        </div>
       </section>
       <footer class="modal-card-foot">
         <button type="submit" class="button is-success">Save</button>
@@ -263,4 +264,11 @@
 </div>
 </body>
 <script src="/custom.js"></script>
+<script>
+  var timeagoInstance = timeago();
+  document.getElementById("mtime").value =
+      timeagoInstance.format(document.getElementById("mtime").value);
+  document.getElementById("ctime").value =
+      timeagoInstance.format(document.getElementById("ctime").value);
+</script>
 </html>
