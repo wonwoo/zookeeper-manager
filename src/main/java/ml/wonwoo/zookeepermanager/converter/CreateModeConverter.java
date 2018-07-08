@@ -13,7 +13,7 @@ public class CreateModeConverter implements Converter<String, CreateMode> {
     try {
       return CreateMode.fromFlag(Integer.valueOf(source));
     } catch (KeeperException e) {
-      throw new RuntimeException(e);
+      throw new IllegalArgumentException("createMode not converter", e);
     }
   }
 }

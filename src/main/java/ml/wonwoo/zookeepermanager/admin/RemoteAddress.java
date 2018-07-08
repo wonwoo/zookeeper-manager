@@ -12,7 +12,8 @@ public class RemoteAddress {
   private final String hostString;
 
   @JsonCreator
-  public RemoteAddress(@JsonProperty("address") String address, @JsonProperty("port") Integer port,
+  public RemoteAddress(@JsonProperty("address") String address,
+                       @JsonProperty("port") Integer port,
                        @JsonProperty("unresolved") boolean unresolved,
                        @JsonProperty("host_name") String hostName,
                        @JsonProperty("host_string") String hostString) {
