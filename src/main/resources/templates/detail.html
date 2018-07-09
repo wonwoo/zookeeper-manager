@@ -7,7 +7,7 @@
   <script src="/webjars/timeago.js/3.0.0/dist/timeago.js"></script>
   <link rel="stylesheet" href="/webjars/bulma/0.7.0/css/bulma.css">
   <link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
   <style>
     .form-margin {
@@ -16,7 +16,7 @@
   </style>
 </head>
 <body>
-<section class="hero is-primary is-bold">
+<section class="hero is-info is-bold">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">
@@ -216,7 +216,7 @@
 
     <div class="has-text-centered">
       <div class="buttons">
-        <button id="open-modal" class="button is-success">Create Node</button>
+        <button id="open-modal" class="button is-info">Create Node</button>
         <form action="/zoo" method="post">
           <input name="_method" type="hidden" value="DELETE">
           <input name="path" th:value="${p}" type="hidden">
@@ -263,14 +263,14 @@
         </div>
       </section>
       <footer class="modal-card-foot">
-        <button type="submit" class="button is-success">Save</button>
+        <button type="submit" class="button is-info">Save</button>
         <button class="button" type="button" onclick="modalClose()">Cancel</button>
       </footer>
     </div>
   </form>
 </div>
 </body>
-<script src="/custom.js"></script>
+<script src="/js/custom.js"></script>
 <script>
   var timeagoInstance = timeago();
   document.getElementById("mtime").value =

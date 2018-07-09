@@ -1,0 +1,36 @@
+.hero-body {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 2rem 1.5rem;
+}
+
+.container-margin {
+  margin-bottom: 20px;
+}
+
+.buttons {
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.hero.is-success {
+  background: #F2F6FA;
+}
+.hero .nav, .hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.box {
+  margin-top: 5rem;
+}
+input {
+  font-weight: 300;
+}
+p {
+  font-weight: 700;
+}
+p.subtitle {
+  padding-top: 1rem;
+}
