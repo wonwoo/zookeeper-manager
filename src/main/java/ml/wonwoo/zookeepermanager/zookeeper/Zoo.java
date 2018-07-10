@@ -45,7 +45,7 @@ public class Zoo {
     try {
       return curator.getData().forPath(rootPath(path));
     } catch (Exception e) {
-      throw new ZookeeperException("create data error", e);
+      throw new NotFoundException("get data error", e);
     }
   }
 
