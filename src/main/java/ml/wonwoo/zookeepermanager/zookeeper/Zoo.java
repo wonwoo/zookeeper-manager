@@ -1,6 +1,7 @@
 package ml.wonwoo.zookeepermanager.zookeeper;
 
 import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.api.DeleteBuilder;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 import org.springframework.stereotype.Component;
@@ -64,9 +65,13 @@ public class Zoo {
     }
   }
 
-  public void deleteNode(String path) {
+  public void deleteNode(String path, boolean isChild) {
     try {
-      curator.delete().deletingChildrenIfNeeded().forPath(rootPath(path));
+      DeleteBuilder delete = curator.delete();
+      if (isChild) {
+        delete.deletingChildrenIfNeeded();
+      }
+      delete.forPath(rootPath(path));
     } catch (Exception e) {
       throw new ZookeeperException("delete node error", e);
     }

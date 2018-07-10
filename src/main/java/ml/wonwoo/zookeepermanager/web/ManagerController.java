@@ -23,8 +23,8 @@ public class ManagerController {
   @PostMapping("/")
   public String createZoo(String[] path, CreateMode createMode) {
     String str = StringUtils.arrayToDelimitedString(path, "/");
-    String node = zoo.createNode(str, createMode);
-    return "redirect:/zoo?create&path=" + node;
+    zoo.createNode(str, createMode);
+    return "redirect:/zoo?create&path=" + str;
   }
 
   @GetMapping("/zoo")
@@ -44,8 +44,8 @@ public class ManagerController {
   }
 
   @DeleteMapping("/zoo")
-  public String deleteZoo(String path) {
-    zoo.deleteNode(path);
+  public String deleteZoo(String path, boolean isChild) {
+    zoo.deleteNode(path, isChild);
     return "redirect:/";
   }
 

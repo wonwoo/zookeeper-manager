@@ -4,16 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zookeeper Manager</title>
+
   <link rel="stylesheet" data-th-href="@{/webjars/bulma/0.7.0/css/bulma.css}">
   <link rel="stylesheet" data-th-href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}">
   <link rel="stylesheet" data-th-href="@{/css/style.css}">
+
 </head>
 <body>
 <section class="hero is-info is-bold">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        <i class="fa" aria-hidden="true"></i>&nbsp;Zookeeper Manager
+        <a th:href="@{/}"><i class="fa" aria-hidden="true"></i>&nbsp;Zookeeper Manager</a>
       </h1>
     </div>
   </div>
@@ -41,7 +43,7 @@
 
 </section>
 
-<div class="modal">
+<div class="modal" id="create-modal">
   <div class="modal-background"></div>
   <form th:action="@{/}" th:method="post">
     <div class="modal-card">
@@ -76,7 +78,7 @@
       </section>
       <footer class="modal-card-foot">
         <button type="submit" class="button is-info">Save</button>
-        <button class="button" type="button" onclick="modalClose()">Cancel</button>
+        <button class="button" type="button" onclick="createModalClose()">Cancel</button>
       </footer>
     </div>
   </form>
