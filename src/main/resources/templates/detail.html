@@ -217,7 +217,7 @@
     <div class="has-text-centered">
       <div class="buttons">
         <button id="open-modal" class="button is-info">Create Node</button>
-        <form action="/zoo" method="post">
+        <form th:action="@{/zoo}" th:method="post">
           <input name="_method" type="hidden" value="DELETE">
           <input name="path" th:value="${p}" type="hidden">
           <input th:if="${p != 'zookeeper'}" class="button is-danger" type="submit" value="Delete Node">
