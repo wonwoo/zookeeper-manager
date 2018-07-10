@@ -25,3 +25,10 @@ server.port=18080
 spring.security.user.name=user
 spring.security.user.password=123
 ```
+
+### version 
+
+| branch                 | zookeeper            |
+| ---------------------- | ---------------------|
+| 3.4                    | 3.4.x                |
+| master                 | 3.5.x                |
