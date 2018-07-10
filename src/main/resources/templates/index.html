@@ -43,7 +43,7 @@
 
 </section>
 
-<div class="modal">
+<div class="modal" id="create-modal">
   <div class="modal-background"></div>
   <form th:action="@{/}" th:method="post">
     <div class="modal-card">
@@ -78,7 +78,7 @@
       </section>
       <footer class="modal-card-foot">
         <button type="submit" class="button is-info">Save</button>
-        <button class="button" type="button" onclick="modalClose()">Cancel</button>
+        <button class="button" type="button" onclick="createModalClose()">Cancel</button>
       </footer>
     </div>
   </form>
