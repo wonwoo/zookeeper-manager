@@ -29,10 +29,10 @@
 <div th:if="${param.exist}" class="notification is-danger has-text-centered">
   <span th:text="'exist node ' + ${param.path}"></span>
 </div>
-<div th:if="${param.data}" class="notification is-info has-text-centered">
+<div th:if="${param.data}" class="notification is-primary has-text-centered">
   <span>save data success</span>
 </div>
-<div th:if="${param.create}" class="notification is-info has-text-centered">
+<div th:if="${param.create}" class="notification primary has-text-centered">
   <span>create node success</span>
 </div>
 
@@ -41,7 +41,7 @@
     <h2 class="title" th:text="${p}"></h2>
   </div>
   <div class="container container-margin">
-    <form action="/zoo" method="post">
+    <form th:action="@{/zoo}" th:method="post">
       <div class="field is-horizontal">
         <div class="field-label is-normal has-text-left">
           <label class="label">Payload</label>
@@ -230,7 +230,7 @@
 
 <div class="modal">
   <div class="modal-background"></div>
-  <form action="/" method="post">
+  <form th:action="@{/}" th:method="post">
     <div class="modal-card">
       <header class="modal-card-head">
         <p class="modal-card-title">Create Node</p>
