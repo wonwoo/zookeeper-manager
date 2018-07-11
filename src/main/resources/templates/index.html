@@ -1,27 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html data-layout-decorate="~{layout}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zookeeper Manager</title>
-
-  <link rel="stylesheet" data-th-href="@{/webjars/bulma/0.7.0/css/bulma.css}">
-  <link rel="stylesheet" data-th-href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}">
-  <link rel="stylesheet" data-th-href="@{/css/style.css}">
-
 </head>
 <body>
-<section class="hero is-info is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        <a th:href="@{/}"><i class="fa" aria-hidden="true"></i>&nbsp;Zookeeper Manager</a>
-      </h1>
-    </div>
-  </div>
-</section>
-
-<section class="section">
+<section class="section" data-layout-fragment="content">
   <div class="container">
     <div class="has-text-right">
       <button id="open-modal" class="button is-info">Create Node</button>
@@ -32,57 +17,57 @@
       </thead>
       <tbody>
       <tr data-th-each="node : ${nodes}">
-        <td><a th:href="@{'/zoo?path=' + ${node}}" th:text="${node}"></a></td>
+        <td><a data-th-href="@{'/zoo?path=' + ${node}}">[[${node}]]</a></td>
       </tr>
       </tbody>
     </table>
-    <div th:if="${#lists.isEmpty(nodes)}">
-      <h4>결과가 없습니다.</h4>
+    <div data-th-if="${#lists.isEmpty(nodes)}" class="has-text-centered">
+      <h3 class="title">not found node</h3>
     </div>
   </div>
 
+
+  <div class="modal" id="create-modal">
+    <div class="modal-background"></div>
+    <form data-th-action="@{/}" data-th-method="post">
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Create Node</p>
+        </header>
+        <section class="modal-card-body">
+          <div class="field is-horizontal">
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <input class="input" type="text" id="path" name="path" placeholder="node" required>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control has-text-right">
+              <div class="select is-primary">
+                <select name="createMode">
+                  <option value="0">PERSISTENT</option>
+                  <option value="2">PERSISTENT_SEQUENTIAL</option>
+                  <option value="1">EPHEMERAL</option>
+                  <option value="3">EPHEMERAL_SEQUENTIAL</option>
+                  <option value="4">CONTAINER</option>
+                  <!--<option value="5">PERSISTENT_WITH_TTL</option>-->
+                  <!--<option value="6">PERSISTENT_SEQUENTIAL_WITH_TTL</option>-->
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button type="submit" class="button is-info">Save</button>
+          <button class="button" type="button" onclick="createModalClose()">Cancel</button>
+        </footer>
+      </div>
+    </form>
+  </div>
 </section>
 
-<div class="modal" id="create-modal">
-  <div class="modal-background"></div>
-  <form th:action="@{/}" th:method="post">
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Create Node</p>
-      </header>
-      <section class="modal-card-body">
-        <div class="field is-horizontal">
-          <div class="field-body">
-            <div class="field">
-              <p class="control">
-                <input class="input" type="text" id="path" name="path" placeholder="node" required>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <div class="control has-text-right">
-            <div class="select is-primary">
-              <select name="createMode">
-                <option value="0">PERSISTENT</option>
-                <option value="2">PERSISTENT_SEQUENTIAL</option>
-                <option value="1">EPHEMERAL</option>
-                <option value="3">EPHEMERAL_SEQUENTIAL</option>
-                <option value="4">CONTAINER</option>
-                <!--<option value="5">PERSISTENT_WITH_TTL</option>-->
-                <!--<option value="6">PERSISTENT_SEQUENTIAL_WITH_TTL</option>-->
-              </select>
-            </div>
-          </div>
-        </div>
-      </section>
-      <footer class="modal-card-foot">
-        <button type="submit" class="button is-info">Save</button>
-        <button class="button" type="button" onclick="createModalClose()">Cancel</button>
-      </footer>
-    </div>
-  </form>
-</div>
 </body>
-<script data-th-src="@{/js/custom.js}"></script>
 </html>

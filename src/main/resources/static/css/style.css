@@ -34,3 +34,7 @@ p {
 p.subtitle {
   padding-top: 1rem;
 }
+
+.form-margin {
+  margin: 30px 0 0 30px;
+}

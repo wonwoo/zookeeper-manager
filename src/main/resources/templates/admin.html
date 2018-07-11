@@ -1,29 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html data-layout-decorate="~{layout}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zookeeper Manager</title>
-
-  <link rel="stylesheet" data-th-href="@{/webjars/bulma/0.7.0/css/bulma.css}">
-  <link rel="stylesheet" data-th-href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}">
-  <link rel="stylesheet" data-th-href="@{/css/style.css}">
-
 </head>
 <body>
-<section class="hero is-info is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        <a th:href="@{/}"><i class="fa" aria-hidden="true"></i>&nbsp;Zookeeper Manager</a>
-      </h1>
-    </div>
-  </div>
-</section>
-
-<section class="section">
+<section class="section" data-layout-fragment="content">
   <div class="has-text-centered container-margin">
-    <h2 class="title" th:text="'alive client connection count : ' + ${stats.serverStats.aliveConnections}"></h2>
+    <h2 class="title">alive client connection count : [[${stats.serverStats.aliveConnections}]]</h2>
   </div>
   <div class="container">
     <table class="table is-hoverable is-fullwidth">
@@ -39,22 +24,18 @@
       </thead>
       <tbody>
       <tr data-th-each="stat : ${stats.connections}">
-        <td th:text="${stat.remoteAddress.address}"></td>
-        <td th:text="${stat.remoteAddress.port}"></td>
-        <td th:text="${stat.remoteAddress.unresolved}"></td>
-        <td th:text="${stat.remoteAddress.hostName}"></td>
-        <td th:text="${stat.interestOps}"></td>
-        <td th:text="${stat.outstandingRequests}"></td>
-        <td th:text="${stat.packetsReceived}"></td>
-        <td th:text="${stat.packetsSent}"></td>
+        <td>[[${stat.remoteAddress.address}]]</td>
+        <td>[[${stat.remoteAddress.port}]]</td>
+        <td>[[${stat.remoteAddress.unresolved}]]</td>
+        <td>[[${stat.remoteAddress.hostName}]]</td>
+        <td>[[${stat.interestOps}]]</td>
+        <td>[[${stat.outstandingRequests}]]</td>
+        <td>[[${stat.packetsReceived}]]</td>
+        <td>[[${stat.packetsSent}]]</td>
       </tr>
       </tbody>
     </table>
-    <div th:if="${#lists.isEmpty(stats)}">
-      <h4>결과가 없습니다.</h4>
-    </div>
   </div>
-
 </section>
 
 </body>

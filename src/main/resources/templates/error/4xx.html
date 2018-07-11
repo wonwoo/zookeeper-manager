@@ -1,25 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html data-layout-decorate="~{layout}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Error</title>
-  <link rel="stylesheet" data-th-href="@{/webjars/bulma/0.7.0/css/bulma.css}">
-  <link rel="stylesheet" data-th-href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}">
-  <link rel="stylesheet" data-th-href="@{/css/style.css}">
-
 </head>
 <body>
-<section class="hero is-info is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        <a th:href="@{/}"><i class="fa" aria-hidden="true"></i>&nbsp;Zookeeper Manager</a>
-      </h1>
-    </div>
-  </div>
-</section>
-<div class="columns">
+<div class="columns" data-layout-fragment="content">
   <div class="column is-half is-offset-one-quarter">
     <section class="section">
       <h2 class="title">[[${status}]] - [[${error}]]</h2>
