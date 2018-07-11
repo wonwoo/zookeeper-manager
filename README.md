@@ -1,4 +1,6 @@
 # zookeeper-manager
+[![Build Status](https://semaphoreci.com/api/v1/wonwoo/zookeeper-manager/branches/master/badge.svg)](https://semaphoreci.com/wonwoo/zookeeper-manager)
+[![Coverage Status](https://coveralls.io/repos/github/wonwoo/zookeeper-manager/badge.svg?branch=master)](https://coveralls.io/github/wonwoo/zookeeper-manager?branch=master)
 
 ### zookeeper-manager
 zookeeper web ui 
