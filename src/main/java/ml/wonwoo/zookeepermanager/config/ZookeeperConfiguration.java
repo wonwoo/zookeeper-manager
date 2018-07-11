@@ -20,8 +20,11 @@ public class ZookeeperConfiguration {
 
   @Bean
   public CuratorFramework curatorFramework(RetryPolicy retryPolicy) throws Exception {
-    CuratorFramework curator = CuratorFrameworkFactory.builder().retryPolicy(retryPolicy)
-        .connectString(zookeeperProperties.getConnectString()).build();
+    CuratorFramework curator = CuratorFrameworkFactory
+        .builder()
+        .retryPolicy(retryPolicy)
+        .connectString(zookeeperProperties.getConnectString())
+        .build();
     curator.start();
     curator.blockUntilConnected(zookeeperProperties.getBlockUntilConnectedWait(),
         zookeeperProperties.getBlockUntilConnectedUnit());
@@ -30,7 +33,8 @@ public class ZookeeperConfiguration {
 
   @Bean
   public RetryPolicy exponentialBackoffRetry() {
-    return new ExponentialBackoffRetry(zookeeperProperties.getBaseSleepTimeMs(),
+    return new ExponentialBackoffRetry(
+        zookeeperProperties.getBaseSleepTimeMs(),
         zookeeperProperties.getMaxRetries(),
         zookeeperProperties.getMaxSleepMs());
   }
