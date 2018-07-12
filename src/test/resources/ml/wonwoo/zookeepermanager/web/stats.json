@@ -1,0 +1,36 @@
+{
+  "version": "3.5.4-beta-7f51e5b68cf2f80176ff944a9ebd2abbc65e7327, built on 05/11/2018 16:27 GMT",
+  "read_only": false,
+  "server_stats": {
+    "packets_sent": 3,
+    "packets_received": 3,
+    "max_latency": 62,
+    "min_latency": 2,
+    "data_dir_size": 134218608,
+    "log_dir_size": 134218608,
+    "last_processed_zxid": 3,
+    "outstanding_requests": 0,
+    "avg_latency": 22,
+    "server_state": "standalone",
+    "num_alive_client_connections": 1,
+    "provider_null": false
+  },
+  "node_count": 5,
+  "connections": [
+    {
+      "remote_socket_address": {
+        "address": "127.0.0.1",
+        "port": 49584,
+        "unresolved": false,
+        "host_name": "localhost",
+        "host_string": "localhost"
+      },
+      "interest_ops": 1,
+      "outstanding_requests": 0,
+      "packets_received": 3,
+      "packets_sent": 3
+    }
+  ],
+  "command": "stats",
+  "error": null
+}
