@@ -13,18 +13,42 @@
 
 </head>
 <body>
-  <section class="hero is-info is-bold">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          <a data-th-href="@{/}"><i class="fa" aria-hidden="true"></i>&nbsp;Zookeeper Manager</a>
-        </h1>
+<nav class="navbar is-link">
+  <div class="navbar-brand">
+    <a class="navbar-item" data-th-href="@{/}">
+      Zookeeper Manager
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" href="/documentation/overview/start/">
+          Menu
+        </a>
+        <nav class="is-boxed" role="navigation" aria-label="dropdown navigation">
+          <div class="navbar-dropdown is-right">
+            <a data-th-href="@{/admin}" class="navbar-item">
+              Admin
+            </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">
+              Version 0.1.0
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
-  </section>
-  <div data-layout-fragment="content">
-
   </div>
+</nav>
+<div data-layout-fragment="content">
+
+</div>
 </body>
 <script data-th-src="@{/js/custom.js}"></script>
 </html>
