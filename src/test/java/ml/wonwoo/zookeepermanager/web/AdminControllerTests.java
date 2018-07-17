@@ -41,7 +41,7 @@ public class AdminControllerTests {
         .andRespond(withSuccess(
             new ClassPathResource("stats.json", getClass()),
             MediaType.APPLICATION_JSON));
-    this.mvc.perform(get("/admin"))
+    this.mvc.perform(get("/connections"))
         .andExpect(status().isOk())
         .andExpect(content().string(containsString("127.0.0.1")))
         .andExpect(content().string(containsString("localhost")))
