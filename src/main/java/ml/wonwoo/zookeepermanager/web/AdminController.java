@@ -19,11 +19,11 @@ public class AdminController {
         .build();
   }
 
-  @GetMapping("/admin")
+  @GetMapping("/connections")
   public String connections(Model model) {
     model.addAttribute("stats", this.restTemplate
         .getForEntity("/stats", Stats.class)
         .getBody());
-    return "admin";
+    return "connection";
   }
 }
